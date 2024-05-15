@@ -163,8 +163,9 @@ def on_search_db():
     if(len(dbs) == 0):
         print("You have not existing data bases.")
     
-    action = input("Create new DB? Y/N ").lower()
-    if(action == 'y'):
+    
+    db = input("Data base(--new to create new one):")
+    if(db == '--new'):
         while True:
             password = getpass.getpass("Password: ")
             verify_password = getpass.getpass("Password second time: ")
@@ -175,8 +176,6 @@ def on_search_db():
         filename = input("Input filename: ")
         data_base.new(password, filename)
         return
-    
-    db = input("Data base:")
     
     if not db in dbs:
         print("Incorrect data base. Exit.")
