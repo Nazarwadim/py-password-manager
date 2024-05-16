@@ -6,6 +6,7 @@ import pyperclip
 import signal
 import sys
 import getpass
+import tests
 
 AUTHOR = "Yablonskyi Nazarii (Nazarwadim)"
 
@@ -201,14 +202,9 @@ def main():
     on_start_use()
     
     data_base.close()
-    
-deas = False
-def test():
-    global deas
-    assert(deas)
 
 if __name__ == "__main__":    
     if len(sys.argv) == 2 and sys.argv[1] == "--test":
-        test()
+        tests.test()
     else:
         main()

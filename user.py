@@ -1,4 +1,13 @@
 class UserData:
+    """
+    User data base class. 
+    Information about the title, description, login, password, mail is stored here. 
+    
+    The library does not depend on the attributes, but depends only on the methods `to_dict` and `from_dict`. 
+    
+    So feel free to create another class with other attributes you need.
+    """
+    
     def __init__(self, title: str = '', login: str = '', password: str = '', email: str = '', description: str = ''):
         self.title = title
         self.login = login
@@ -15,6 +24,10 @@ class UserData:
             "description": self.description
         }
 
+    @classmethod
+    def from_dict(cls, data):
+        return cls(**data)
+    
     def __str__(self):
         string = f"Title: {self.title},\n"
         if(len(self.email) != 0):
@@ -24,7 +37,3 @@ class UserData:
         pass_with_stars = '*' * (50 if (len(self.password) > 50) else len(self.password))
         string += f"\tLogin: {self.login}\n\tPassword: {pass_with_stars}"
         return string
-
-    @classmethod
-    def from_dict(cls, data):
-        return cls(**data)
