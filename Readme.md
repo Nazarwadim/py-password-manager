@@ -1,8 +1,8 @@
-**A library for password managers.**
+# A library for password managers.
 This is a secure and fast library that has an API in the form of a DataBase class through which you can use it.
 At the moment, it can be used by both programmers and ordinary people who want to store their passwords in a safe place, as an example of a user interface via CLI is implemented. 
 
-**Installation and launch.**
+# Installation and launch.  
 You need to have python3.10+ (I have not tested it on lower versions).
 The command to install the necessary libraries:
 ```pip install -r requirements.txt```
@@ -12,7 +12,7 @@ python3 example.py or python example.py
 Linux doesn't work on some distributions, so if you get the following message when copying your password, follow the link and download the additional libraries
  "Pyperclip could not find a copy/paste mechanism for your system. Please see https://pyperclip.readthedocs.io/en/latest/introduction.html#not-implemented-error for how to fix this."
 
-**CLI.**
+# CLI. 
 If you have launched the example.py file, then everything is simple and conveniently described here.
 Enter the -new command. Next, write the command 'h' and you will be shown all the information about working with the program.
 ``` 
@@ -28,17 +28,17 @@ Enter the -new command. Next, write the command 'h' and you will be shown all th
                  au - author
                  --------------------------------------------
 ```
-**UML diagram:**
-
+# UML diagram.
 ![Here should be UML :/](UML.png)
 
-**Library API**
-The entire interaction interface is implemented through the DataBase class. The UserData class is used as the base type that is stored, but due to dynamic typing in python, it can be changed to other types. 
-It is important that the UserData class has two methods `to_dict` and `from_dict`, which is its interaction interface.
-Interaction interface of UserData.
-The main component in my library. It combines all other classes into one single class with all the functionality.
-Saves user data in the form of a list.
-Initialization of the library:
+# Library usage.
+The entire interaction interface is implemented through the DataBase class. 
+The UserData class is used as the base type that is stored, but due to dynamic typing in python, it can be changed to other types. 
+It is important that the UserData class has two methods `to_dict` and `from_dict`, which is its interaction interface.  
+Interaction interface of UserData.  
+The main component in my library. It combines all other classes into one single class with all the functionality.  
+Saves user data in the form of a list.  
+
 Create an instance of the class 
     `data_base = DataBase()`
 We have created an instance of our database.
@@ -52,14 +52,15 @@ Don`t change this file manually!!!!yMRZGr0WU+lRRDZjkbFRARI6yz0CabLihg0HxZSHuMmfC
 It contains my login and password to my email, so good luck hacking me).
 In case this file gets corrupted, you have a backup in mybase.pasmancopy.
 
-Adding a new user:
-      `data_base.add_user_data(UserData("tit", "log", "pas", "email", "description"))`
-Once again, UserData can be any class with `to_dict` and `from_dict` methods.
-Deleting a user:
+Adding a new user:  
+      `data_base.add_user_data(UserData("tit", "log", "pas", "email", "description"))`  
+Once again, UserData can be any class with `to_dict` and `from_dict` methods.  
+
+Deleting a user:  
       `data_base.remove_user_data(0)`
 
-After the completion of our program, we close our database with `close` method, which saves all the information in the file.
-The entire code:
+After the completion of our program, we close our database with `close` method, which saves all the information in the file.  
+The entire code:  
 ```
     data_base = DataBase()
     data_base.new("1234", "mybase")
