@@ -35,7 +35,9 @@ Enter the -new command. Next, write the command 'h' and you will be shown all th
 The entire interaction interface is implemented through the DataBase class. 
 The UserData class is used as the base type that is stored, but due to dynamic typing in python, it can be changed to other types. 
 It is important that the UserData class has two methods `to_dict` and `from_dict`, which is its interaction interface.  
-Interaction interface of UserData.  
+Interaction interface of UserData. 
+
+**DataBase**  
 The main component in my library. It combines all other classes into one single class with all the functionality.  
 Saves user data in the form of a list.  
 
