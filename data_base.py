@@ -54,7 +54,7 @@ class DataBase:
     _is_open : bool = False
     _filename : str
 
-    def __init__(self, serializer : Serializer) -> None:
+    def __init__(self, serializer : Serializer = Serializer()) -> None:
         """
         Initializes the DataBase instance with the given serializer.
         
@@ -112,6 +112,8 @@ class DataBase:
             user_data (UserData): The user data to add.
         """
         self._data.append(user_data)
+        b = self._crypto.encrypt_user_data_list(self._data)      
+        self._serializer.save(b, self._filename + ".passman")
     
     def remove_user_data(self, index : int) -> None:
         """

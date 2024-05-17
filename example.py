@@ -3,7 +3,6 @@ from data_base import DataBase
 from user import UserData
 from password_generator import generate_random_password
 import pyperclip
-import signal
 import sys
 import getpass
 import tests
@@ -35,26 +34,24 @@ def get_input_password() -> str:
             print("Invalid password verify. Both passwords must be same!")
         return password
     
-    length = int(input("Print password length(can`t be larger than 1000):"))
-    if length <= 0 or length > 1000: 
+    try:
+        length = int(input("Print password length(can`t be larger than 1000):"))
+        if length <= 0 or length > 1000: 
+            raise Exception()
+        return generate_random_password(length)
+    except Exception:
         print("Invalid length. Generating 12 length password.")
         return generate_random_password(12)
-    return generate_random_password(length)
-    
 
 def get_input_position() -> int:
     position = input("Print index:")
     return int(position)
 
-def signal_handler(sig, frame):
+def prog_end():
     global data_base
     data_base.close()
-    print(' Ctrl+C preased. Data saved. Exit.')
+    print('Data saved. Exit.')
     sys.exit(0)
-
-signal.signal(signal.SIGINT, signal_handler)
-
-print('Enter Ctrl+C to exit.')
 
 def show_all():
     global data_base
@@ -197,11 +194,14 @@ def on_search_db():
         exit()
     
 def main():
-    global data_base
-    on_search_db()
-    on_start_use()
-    
-    data_base.close()
+    try:
+        print('Enter Ctrl+C or Ctrl+D to exit.')
+        global data_base
+        on_search_db()
+        on_start_use()
+        prog_end()
+    except:
+        prog_end()
 
 if __name__ == "__main__":    
     if len(sys.argv) == 2 and sys.argv[1] == "--test":
