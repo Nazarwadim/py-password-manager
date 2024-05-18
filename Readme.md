@@ -4,12 +4,14 @@ At the moment, it can be used by both programmers and ordinary people who want t
 
 # Installation and launch.  
 You need to have python3.10+ (I have not tested it on lower versions).
-The command to install the necessary libraries:
-```pip install -r requirements.txt```
-The command to run the program:
-python3 example.py or python example.py
+The command to install the necessary libraries:  
+```
+pip install -r requirements.txt
+```  
+The command to run the program:  
+`python3 example.py` or `python example.py`
 
-Linux doesn't work on some distributions, so if you get the following message when copying your password, follow the link and download the additional libraries
+This doesn't work on some linux distributions, so if you get the following message when copying your password, follow the link and download the additional libraries
  "Pyperclip could not find a copy/paste mechanism for your system. Please see https://pyperclip.readthedocs.io/en/latest/introduction.html#not-implemented-error for how to fix this."
 
 # CLI. 
