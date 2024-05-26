@@ -65,7 +65,7 @@ Deleting a user:
 
 After the completion of our program, we close our database with `close` method, which saves all the information in the file.  
 The entire code:  
-```
+```python
     data_base = DataBase()
     data_base.new("1234", "mybase")
     data_base.add_user_data(UserData("tit", "log", "pas", "email", "description"))
